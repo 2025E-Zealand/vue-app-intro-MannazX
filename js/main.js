@@ -2,17 +2,26 @@ const app = Vue.createApp({
     data() {
         return {
             intro: 'Welcome to my Vue template',
+            hidden: false,
         }
     },
     methods: {
-        myMethod(){
-
+        hide() {
+            if (this.hidden == false) {
+                this.hidden = true
+            }
         },
+        show() {
+            if (this.hidden == true) {
+                this.hidden = false
+            }
+        }
     },
     computed: {
-        myComputed() {
-            return ''
-        },
-        
+        fullname() {
+            return firstname + ' ' + lastname
+        }
     }
 })
+const firstname = "Private Sodoff"
+const lastname = "Baldrick"
