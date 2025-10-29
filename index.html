@@ -12,8 +12,49 @@
   <body>
     <div id="app">
       <div class="nav-bar"></div>
-
       <h1>{{ intro }}</h1>
+      <!--<p v-show="!hidden">{{ firstname }}</p>
+      <p v-show="!hidden">{{ lastname }}</p>
+      <p v-show="!hidden">{{ firstname + ' ' + lastname }}</p>
+      <p v-show="!hidden">{{ lastname.substring(0, 4) }}</p>-->
+      <p v-show="showLastname"> {{ lastname }}</p>
+      <p v-show="!hidden">{{ fullname }}</p>
+      <div v-if="showLastname">
+        <button v-on:click="show">Hide Lastname</button>
+      </div>
+      <div v-else>
+        <button v-on:click="show">Show Lastname</button>
+      </div>
+      <br>
+      <div v-if="!hidden">
+        <button class="button" @click="hideName">Hide Name</button>
+      </div>
+      <li v-else>
+        <button class="button" @click="showName">Show Name</button>
+      </li>
+      <br>
+      <!--<p v-for="student in students"> {{ student }}<br></p>-->
+      <div v-show="showStudent">
+        <div v-if="studentAge">
+          <p v-for="student in students">{{ "Firstname: " + student["firstname"] + ", Lastname: " + student["lastname"] + ", Age: " + student["age"] }}<br></p>
+        </div>
+        <div v-if="!studentAge">
+          <p v-for="student in students">{{ "Firstname: " + student["firstname"] + ", Lastname: " + student["lastname"] }}<br></p>
+        </div>
+        <div v-if="studentAge">
+          <button v-on:click="showStudentAges">Hide Age</button>
+        </div>
+        <div v-if="!studentAge">
+          <button v-on:click="showStudentAges">Show Age</button>
+        </div>
+      </div>
+      
+      <div v-if="showStudent">
+        <button v-on:click="showStudents">Hide Students</button>
+      </div>
+      <div v-else>
+        <button v-on:click="showStudents">Show Students</button>
+      </div>
       
     </div>
 
