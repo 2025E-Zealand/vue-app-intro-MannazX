@@ -12,7 +12,8 @@ const app = Vue.createApp({
                 {"firstname" : "Magnus", "lastname" : "Asker", "age" : 29},
                 {"firstname" : "Vincent", "lastname" : "Arran", "age" : 25},
                 {"firstname" : "Kristoffer", "lastname" : "Einarson", "age" : 27}
-            ]
+            ],
+            mobilnr : ""
             //students : ["Magnus", "Vincent", "Kristoffer"]
         }
     },

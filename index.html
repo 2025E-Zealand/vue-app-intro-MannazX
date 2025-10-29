@@ -19,32 +19,43 @@
       <p v-show="!hidden">{{ lastname.substring(0, 4) }}</p>-->
       <p v-show="showLastname"> {{ lastname }}</p>
       <p v-show="!hidden">{{ fullname }}</p>
-      <li v-if="showLastname">
+      <div v-if="showLastname">
         <button v-on:click="show">Hide Lastname</button>
-      </li>
-      <li v-else>
+      </div>
+      <div v-else>
         <button v-on:click="show">Show Lastname</button>
-      </li>
+      </div>
       <br>
-      <li v-if="!hidden">
+      <div v-if="!hidden">
         <button class="button" @click="hideName">Hide Name</button>
-      </li>
+      </div>
       <li v-else>
         <button class="button" @click="showName">Show Name</button>
       </li>
       <br>
-      <li v-if="showStudent">
-        <button v-on:click="showStudents">Hide Students</button>
-      </li>
-      <li v-else>
-        <button v-on:click="showStudents">Show Students</button>
-      </li>
       <!--<p v-for="student in students"> {{ student }}<br></p>-->
-      <li v-if="showStudent">
-        <p v-for="student in students">{{ "Firstname: " + student["firstname"] + ", Age: " + student["age"] }}<br></p>
-        <br>
-        <p v-for="student in students">{{ "Firstname: " + student["firstname"] + ", Lastname: " + student["lastname"] + ", Age: " + student["age"] }}<br></p>
-      </li>
+      <div v-show="showStudent">
+        <div v-if="studentAge">
+          <p v-for="student in students">{{ "Firstname: " + student["firstname"] + ", Lastname: " + student["lastname"] + ", Age: " + student["age"] }}<br></p>
+        </div>
+        <div v-if="!studentAge">
+          <p v-for="student in students">{{ "Firstname: " + student["firstname"] + ", Lastname: " + student["lastname"] }}<br></p>
+        </div>
+        <div v-if="studentAge">
+          <button v-on:click="showStudentAges">Hide Age</button>
+        </div>
+        <div v-if="!studentAge">
+          <button v-on:click="showStudentAges">Show Age</button>
+        </div>
+      </div>
+      
+      <div v-if="showStudent">
+        <button v-on:click="showStudents">Hide Students</button>
+      </div>
+      <div v-else>
+        <button v-on:click="showStudents">Show Students</button>
+      </div>
+      
     </div>
 
     <!-- Import App -->
